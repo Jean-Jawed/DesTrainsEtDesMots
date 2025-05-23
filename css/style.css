@@ -1,0 +1,349 @@
+/* Import des polices Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap');
+
+/* Variables CSS pour les couleurs et les ombres */
+:root {
+    --color-dark-bg: #1a1a1a;
+    --color-dark-bg-alt: #2c2c2c;
+    --color-text-light: #e0e0e0;
+    --color-text-muted: #a0a0a0;
+    --color-accent-amber: #d97706; /* Un ambre plus profond */
+    --color-accent-amber-light: #f59e0b; /* Un ambre plus clair pour le hover */
+    --color-accent-teal: #14b8a6; /* Un teal pour le contraste technique */
+    --color-accent-teal-light: #2dd4bf;
+
+    --shadow-deep: 0 10px 20px rgba(0, 0, 0, 0.4), 0 6px 6px rgba(0, 0, 0, 0.3);
+    --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.6), inset 0 -2px 4px rgba(255, 255, 255, 0.05);
+    --border-color: #4a4a4a;
+}
+
+/* Styles de base et typographie */
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-light);
+    background-color: var(--color-dark-bg);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-accent-amber);
+}
+
+.font-playfair-display {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-source-code-pro {
+    font-family: 'Source Code Pro', monospace;
+}
+
+/* Styles spécifiques pour les liens de navigation */
+.nav-link {
+    @apply text-gray-300 hover:text-amber-300 transition-colors duration-300 relative;
+}
+
+.nav-link::after {
+    content: '';
+    @apply absolute left-0 right-0 bottom-0 h-0.5 bg-amber-300 transform scale-x-0 transition-transform duration-300 ease-out;
+}
+
+.nav-link:hover::after {
+    @apply scale-x-100;
+}
+
+.mobile-nav-link {
+    @apply text-amber-300 hover:text-amber-400 transition-colors duration-300;
+}
+
+/* Boutons */
+.btn-primary {
+    @apply inline-flex items-center px-8 py-3 rounded-full text-lg font-semibold bg-amber-600 text-white shadow-xl
+           hover:bg-amber-700 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105
+           focus:outline-none focus:ring-4 focus:ring-amber-500 focus:ring-opacity-50
+           border border-amber-700;
+    box-shadow: var(--shadow-deep);
+    background: linear-gradient(145deg, #d97706, #b45309);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-inset);
+}
+
+/* Sections et conteneurs */
+.section-title {
+    @apply text-4xl md:text-5xl font-playfair-display text-amber-300 mb-8 relative inline-block;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.section-title::after {
+    content: '';
+    @apply absolute left-1/2 bottom-0 w-24 h-1 bg-amber-400 transform -translate-x-1/2 rounded-full;
+}
+
+/* Effets d'ombre et de relief */
+.shadow-inner-dark {
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.7), inset 0 -5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.shadow-2xl {
+    box-shadow: var(--shadow-deep);
+}
+
+/* Textures (arrière-plans) */
+body {
+    background-color: #1a1a1a; /* Couleur de base */
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), /* Surcouche sombre */
+        url('../assets/images/metal_texture.jpg'); /* Texture de métal brossé */
+    background-blend-mode: overlay; /* Mélange la couleur et la texture */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.parallax-bg {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Effet parallaxe */
+    filter: brightness(0.6) grayscale(0.8); /* Assombrir et désaturer l'image */
+    transition: filter 0.5s ease-in-out;
+}
+
+/* Ornement d'engrenage pour les titres de section */
+.ornament-engrenage {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3Cfilter id='shadow'%3E%3CfeDropShadow dx='2' dy='2' stdDeviation='2' flood-color='%23000' flood-opacity='0.5'/%3E%3C/filter%3E%3Ccircle cx='50' cy='50' r='40' fill='%236b7280' filter='url(%23shadow)'/%3E%3Ccircle cx='50' cy='50' r='15' fill='%231f2937'/%3E%3Cpath d='M50 10 L60 25 L50 30 L40 25 Z' fill='%236b7280' transform='rotate(0 50 50)'/%3E%3Cpath d='M50 10 L60 25 L50 30 L40 25 Z' fill='%236b7280' transform='rotate(45 50 50)'/%3E%3Cpath d='M50 10 L60 25 L50 30 L40 25 Z' fill='%236b7280' transform='rotate(90 50 50)'/%3E%3Cpath d='M50 10 L60 25 L50 30 L40 25 Z' fill='%236b7280' transform='rotate(135 50 50)'/%3E%3Cpath d='M50 10 L60 25 L50 30 L40 25 Z' fill='%236b7280' transform='rotate(180 50 50)'/%3E%3Cpath d='M50 10 L60 25 L50 30 L40 25 Z' fill='%236b7280' transform='rotate(225 50 50)'/%3E%3Cpath d='M50 10 L60 25 L50 30 L40 25 Z' fill='%236b7280' transform='rotate(270 50 50)'/%3E%3Cpath d='M50 10 L60 25 L50 30 L40 25 Z' fill='%236b7280' transform='rotate(315 50 50)'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-left: 10px;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
+}
+
+/* Animations d'entrée (Fade In Up) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Animation au défilement (déclenchée par JS) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation du train SVG */
+#train-animation-container {
+    /* pointer-events: none; EST DÉJÀ DANS L'HTML ET RE-AJUSTÉ PAR JS */
+}
+
+#train-svg {
+    transform: translateX(-100%); /* Position initiale hors écran */
+    transition: transform 2s ease-out; /* Enlever opacity 0.5s d'ici, géré par le parent */
+}
+
+/* Classes d'animation JS */
+.train-animate #train-svg {
+    /* La transformation de translation est maintenant gérée directement par JS pour plus de contrôle */
+}
+
+.train-animate .wheel {
+    animation: rotateWheel 1s linear infinite;
+    transform-origin: center;
+}
+
+.train-animate .bielle-accouplement {
+    animation: moveBielle 1s linear infinite;
+}
+
+.train-animate .smoke {
+    animation: emitSmoke 3s ease-out infinite;
+    transform-origin: center;
+}
+
+@keyframes rotateWheel {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes moveBielle {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes emitSmoke {
+    0% { opacity: 0; transform: translateY(0) scale(0.5); }
+    20% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-50px) scale(1.5); }
+}
+
+/* Lightbox styles */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.lightbox-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    overflow: hidden;
+    transform: scale(0.8);
+    transition: transform 0.3s ease-in-out;
+}
+
+.lightbox-overlay.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-content img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1010;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.lightbox-close:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Styles pour les pages de pièces */
+.breadcrumb {
+    @apply text-gray-500 text-sm mb-8;
+}
+
+.breadcrumb a {
+    @apply text-amber-400 hover:underline;
+}
+
+.piece-image-container {
+    @apply relative w-full h-80 md:h-96 lg:h-[500px] overflow-hidden rounded-xl shadow-2xl border border-gray-700 mb-8 cursor-pointer;
+}
+
+.piece-image-container img {
+    @apply w-full h-full object-cover object-center transition-transform duration-300 ease-in-out;
+}
+
+.piece-image-container:hover img {
+    transform: scale(1.05);
+}
+
+.piece-image-container::after {
+    content: 'Cliquez pour agrandir';
+    @apply absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-lg font-semibold opacity-0 transition-opacity duration-300;
+}
+
+.piece-image-container:hover::after {
+    opacity: 1;
+}
+
+.technical-description {
+    @apply font-source-code-pro text-teal-300 bg-gray-800 p-6 rounded-xl shadow-inner-dark border border-gray-700 mb-8;
+}
+
+.poetic-reflection {
+    @apply font-playfair-display italic text-amber-300 bg-gray-800 p-6 rounded-xl shadow-inner-dark border border-gray-700 mb-8;
+}
+
+.anecdote {
+    @apply font-inter text-gray-400 bg-gray-800 p-6 rounded-xl shadow-inner-dark border border-gray-700;
+}
+
+/* Styles du menu déroulant pour ajouter la latence */
+.group .dropdown-menu {
+    @apply absolute bg-gray-800 shadow-lg rounded-lg py-2 mt-2 w-48; /* Garde les styles de base de Tailwind */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px); /* Commence légèrement décalé */
+    /* Transition pour l'opacité et le mouvement, avec un délai pour la visibilité lors de la disparition */
+    transition: visibility 0s linear 0.3s, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.group:hover .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s; /* Pas de délai à l'apparition */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 3rem;
+    }
+    .btn-primary {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    .grid-cols-1.md\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Accessibilité (ARIA) - Tailwind gère une partie, mais les rôles et labels sont dans le HTML */
+/* Focus states pour les éléments interactifs */
+a:focus, button:focus {
+    outline: 2px solid var(--color-accent-amber-light);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Ajout de la transition pour la hauteur du header */
+header {
+    transition: height 0.8s ease-in-out, padding 0.8s ease-in-out;
+}

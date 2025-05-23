@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - Mécanique des Chemins de Fer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-gray-300 font-inter antialiased overflow-x-hidden">
+
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 p-4 transition-all duration-300 ease-in-out bg-transparent">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-playfair-display text-amber-300 hover:text-amber-400 transition-colors duration-300" aria-label="Accueil du site">
+                L'Ode du Fer
+            </a>
+            <button id="menu-toggle" class="lg:hidden text-amber-300 focus:outline-none" aria-label="Ouvrir le menu de navigation">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            <ul id="main-menu" class="hidden lg:flex space-x-8">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li class="relative group">
+                    <a href="#" class="nav-link">Pièces Mécaniques <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+                    <ul class="absolute hidden group-hover:block bg-gray-800 shadow-lg rounded-lg py-2 mt-2 w-48 transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2">
+                        <li><a href="pieces/crapaudine.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Crapaudine</a></li>
+                        <li><a href="pieces/essieu.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Essieu</a></li>
+                        <li><a href="pieces/timonerie_frein.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Timonerie de frein</a></li>
+                        <li><a href="pieces/manivelle_maneton.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Manivelle de maneton</a></li>
+                        <li><a href="pieces/bielle_accouplement.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Bielle d'accouplement</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="nav-link">À Propos</a></li>
+            </ul>
+        </div>
+        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-40 flex flex-col items-center justify-center transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <button id="close-menu" class="absolute top-4 right-4 text-amber-300 focus:outline-none" aria-label="Fermer le menu de navigation">
+                <i class="fas fa-times text-3xl"></i>
+            </button>
+            <ul class="text-center space-y-6 text-2xl">
+                <li><a href="index.html" class="mobile-nav-link">Accueil</a></li>
+                <li><a href="pieces/crapaudine.html" class="mobile-nav-link">Crapaudine</a></li>
+                <li><a href="pieces/essieu.html" class="mobile-nav-link">Essieu</a></li>
+                <li><a href="pieces/timonerie_frein.html" class="mobile-nav-link">Timonerie de frein</a></li>
+                <li><a href="pieces/manivelle_maneton.html" class="mobile-nav-link">Manivelle de maneton</a></li>
+                <li><a href="pieces/bielle_accouplement.html" class="mobile-nav-link">Bielle d'accouplement</a></li>
+                <li><a href="about.html" class="mobile-nav-link">À Propos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-16 mt-20">
+        <nav class="breadcrumb animate-on-scroll" aria-label="Fil d'Ariane">
+            <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                    <a href="index.html" class="text-gray-500 hover:text-amber-400">Accueil</a>
+                    <span class="mx-2 text-gray-600">/</span>
+                </li>
+                <li class="flex items-center text-amber-400" aria-current="page">
+                    À Propos
+                </li>
+            </ol>
+        </nav>
+
+        <h1 class="section-title text-center mb-10 animate-on-scroll">
+            À Propos de L'Ode du Fer et de la Vapeur
+            <span class="ornament-engrenage"></span>
+        </h1>
+
+        <section class="max-w-4xl mx-auto bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700 text-gray-400 leading-relaxed text-lg animate-on-scroll">
+            <h2 class="text-3xl font-playfair-display text-amber-300 mb-6">Notre Objectif</h2>
+            <p class="mb-6">
+                Ce site est né d'une fascination profonde pour l'ingéniosité mécanique et la poésie cachée dans les rouages du monde. Les chemins de fer, avec leur histoire riche et leur complexité technique, offrent un terrain de jeu idéal pour explorer cette dualité. Notre objectif est de magnifier ces pièces d'ingénierie, souvent réduites à leur simple fonction, en révélant leur beauté, leur histoire et leur rôle essentiel dans l'épopée ferroviaire.
+            </p>
+            <p class="mb-6">
+                Nous souhaitons offrir une perspective unique, où la rigueur technique se mêle à l'expression artistique, invitant le visiteur à une contemplation des formes, des matériaux et des mouvements qui animent ces géants d'acier. C'est une célébration de l'héritage industriel et de l'artisanat qui a façonné notre monde.
+            </p>
+
+            <h2 class="text-3xl font-playfair-display text-amber-300 mb-6 mt-10">L'Auteur</h2>
+            <p class="mb-4">
+                Ce projet a été conçu et développé par <strong class="text-amber-400">Javed</strong>.
+            </p>
+            <p class="mb-6">
+                Passionné par la mécanique, l'histoire industrielle et l'art du développement web, Javed a souhaité créer une plateforme où ces intérêts convergent. "L'Ode du Fer et de la Vapeur" est le fruit d'une recherche approfondie et d'un désir de partager la magie des trains au-delà de leur simple aspect fonctionnel.
+            </p>
+            <p>
+                Pour toute question ou commentaire, n'hésitez pas à contacter Javed à l'adresse suivante : <a href="mailto:jawed_tahir@yahoo.fr" class="text-teal-400 hover:underline">jawed_tahir@yahoo.fr</a>.
+            </p>
+        </section>
+    </main>
+
+    <footer class="bg-gray-950 py-8 text-center text-gray-500 text-sm shadow-inner-dark">
+        <p>&copy; 2025 L'Ode du Fer et de la Vapeur. Tous droits réservés.</p>
+        <p class="mt-2">Développé avec passion par <a href="about.html" class="text-amber-400 hover:underline">Javed</a>.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Manivelle de Maneton - Pièces Mécaniques | L'Ode du Fer et de la Vapeur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-gray-300 font-inter antialiased overflow-x-hidden">
+
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 p-4 transition-all duration-300 ease-in-out bg-gray-900 bg-opacity-80 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="../index.html" class="text-2xl font-playfair-display text-amber-300 hover:text-amber-400 transition-colors duration-300" aria-label="Accueil du site">
+                L'Ode du Fer
+            </a>
+            <button id="menu-toggle" class="lg:hidden text-amber-300 focus:outline-none" aria-label="Ouvrir le menu de navigation">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            <ul id="main-menu" class="hidden lg:flex space-x-8">
+                <li><a href="../index.html" class="nav-link">Accueil</a></li>
+                <li class="relative group">
+                    <a href="#" class="nav-link">Pièces Mécaniques <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+                    <ul class="absolute dropdown-menu">
+                        <li><a href="crapaudine.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Crapaudine</a></li>
+                        <li><a href="essieu.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Essieu</a></li>
+                        <li><a href="timonerie_frein.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Timonerie de frein</a></li>
+                        <li><a href="manivelle_maneton.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Manivelle de maneton</a></li>
+                        <li><a href="bielle_accouplement.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Bielle d'accouplement</a></li>
+                    </ul>
+                </li>
+                <li><a href="../about.html" class="nav-link">À Propos</a></li>
+            </ul>
+        </div>
+        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-40 flex flex-col items-center justify-center transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <button id="close-menu" class="absolute top-4 right-4 text-amber-300 focus:outline-none" aria-label="Fermer le menu de navigation">
+                <i class="fas fa-times text-3xl"></i>
+            </button>
+            <ul class="text-center space-y-6 text-2xl">
+                <li><a href="../index.html" class="mobile-nav-link">Accueil</a></li>
+                <li><a href="crapaudine.html" class="mobile-nav-link">Crapaudine</a></li>
+                <li><a href="essieu.html" class="mobile-nav-link">Essieu</a></li>
+                <li><a href="timonerie_frein.html" class="mobile-nav-link">Timonerie de frein</a></li>
+                <li><a href="manivelle_maneton.html" class="mobile-nav-link">Manivelle de maneton</a></li>
+                <li><a href="bielle_accouplement.html" class="mobile-nav-link">Bielle d'accouplement</a></li>
+                <li><a href="../about.html" class="mobile-nav-link">À Propos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-24">
+        <nav class="breadcrumb" aria-label="breadcrumb">
+            <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                    <a href="../index.html" class="text-amber-400 hover:underline">Accueil</a>
+                    <i class="fas fa-chevron-right text-gray-500 text-xs mx-2"></i>
+                </li>
+                <li class="flex items-center">
+                    <a href="#" class="text-amber-400 hover:underline">Pièces Mécaniques</a>
+                    <i class="fas fa-chevron-right text-gray-500 text-xs mx-2"></i>
+                </li>
+                <li class="flex items-center text-gray-500" aria-current="page">
+                    Manivelle de maneton
+                </li>
+            </ol>
+        </nav>
+
+        <h1 class="text-5xl md:text-6xl font-playfair-display text-amber-300 mb-8 text-center drop-shadow-lg">
+            La Manivelle de Maneton : Le Cœur du Mouvement
+        </h1>
+
+        <div class="piece-image-container animate-on-scroll" data-src="../assets/images/manivelle_maneton.jpg">
+            <img src="../assets/images/manivelle_maneton.jpg" alt="Image d'une manivelle de maneton de locomotive à vapeur">
+        </div>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <article class="technical-description animate-on-scroll">
+                <h2 class="text-3xl font-source-code-pro text-teal-300 mb-4">Description Technique</h2>
+                <p class="mb-4">
+                    La manivelle de maneton est un élément crucial du système de transmission des locomotives à vapeur. C'est un **bras rigide** (souvent une extension de la roue motrice elle-même ou une pièce boulonnée à celle-ci) sur lequel est articulé le **maneton**. Le maneton est l'axe autour duquel la tête de bielle motrice (celle connectée au piston) pivote. En bref, la manivelle de maneton est ce qui permet de **convertir le mouvement linéaire alternatif du piston en un mouvement de rotation continu** des roues motrices.
+                </p>
+                <p>
+                    Sa position et sa conception sont essentielles pour le **calage des bielles** et le **bon fonctionnement de la distribution** de la vapeur. Elle est soumise à d'énormes forces cycliques et doit être d'une robustesse et d'une précision extrêmes pour assurer une transmission efficace et durable de la puissance.
+                </p>
+            </article>
+
+            <article class="poetic-reflection animate-on-scroll">
+                <h2 class="text-3xl font-playfair-display text-amber-300 mb-4">Réflexion Poétique</h2>
+                <p class="mb-4 italic">
+                    Rythme cadencé, du piston à la roue,<br>
+                    La manivelle danse, un ballet si doux.<br>
+                    Le maneton l'embrasse, pivot de la puissance,<br>
+                    Le mouvement prend vie, dans une lente cadence.<br>
+                    Cœur battant du géant, souffle d'acier trempé,<br>
+                    Elle murmure les départs, les voyages enchantés.<br>
+                    Dans son arc précis, la force se déploie,<br>
+                    L'âme du rail s'anime, et l'onde de joie.
+                </p>
+            </article>
+        </section>
+
+        <section class="anecdote animate-on-scroll">
+            <h2 class="text-3xl font-inter text-gray-300 mb-4">Anecdote Ferroviaire : La Magie de la Conversion</h2>
+            <p class="mb-4">
+                Observer le mouvement des bielles et des manivelles d'une locomotive à vapeur en pleine marche est une expérience fascinante, presque hypnotisante. C'est là que l'on voit le plus clairement la transformation de l'énergie thermique (vapeur) en énergie cinétique (mouvement). La manivelle de maneton, bien que statique par rapport à la roue, est le point névralgique où cette conversion s'opère. Sa position exacte sur la roue est déterminante pour l'efficacité du moteur et la douceur de la marche, un équilibre délicat que les ingénieurs des siècles passés ont perfectionné avec une ingéniosité remarquable.
+            </p>
+        </section>
+    </main>
+
+    <footer class="bg-gray-950 py-8 text-center text-gray-500 text-sm shadow-inner-dark">
+        <p>&copy; 2025 L'Ode du Fer et de la Vapeur. Tous droits réservés.</p>
+        <p class="mt-2">Développé avec passion par <a href="../about.html" class="text-amber-400 hover:underline">Javed</a>.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

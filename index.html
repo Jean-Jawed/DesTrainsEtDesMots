@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mécanique des Chemins de Fer - L'Ode du Fer et de la Vapeur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-gray-300 font-inter antialiased overflow-x-hidden">
+
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 p-4 transition-all duration-300 ease-in-out bg-transparent">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-playfair-display text-amber-300 hover:text-amber-400 transition-colors duration-300" aria-label="Accueil du site">
+                L'Ode du Fer
+            </a>
+            <button id="menu-toggle" class="lg:hidden text-amber-300 focus:outline-none" aria-label="Ouvrir le menu de navigation">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            <ul id="main-menu" class="hidden lg:flex space-x-8">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li class="relative group">
+                    <a href="#" class="nav-link">Pièces Mécaniques <i class="fas fa-chevron-down text-xs ml-1"></i></a>
+                    <ul class="absolute dropdown-menu">
+                        <li><a href="pieces/crapaudine.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Crapaudine</a></li>
+                        <li><a href="pieces/essieu.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Essieu</a></li>
+                        <li><a href="pieces/timonerie_frein.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Timonerie de frein</a></li>
+                        <li><a href="pieces/manivelle_maneton.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Manivelle de maneton</a></li>
+                        <li><a href="pieces/bielle_accouplement.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Bielle d'accouplement</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html" class="nav-link">À Propos</a></li>
+            </ul>
+        </div>
+        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-40 flex flex-col items-center justify-center transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <button id="close-menu" class="absolute top-4 right-4 text-amber-300 focus:outline-none" aria-label="Fermer le menu de navigation">
+                <i class="fas fa-times text-3xl"></i>
+            </button>
+            <ul class="text-center space-y-6 text-2xl">
+                <li><a href="index.html" class="mobile-nav-link">Accueil</a></li>
+                <li><a href="pieces/crapaudine.html" class="mobile-nav-link">Crapaudine</a></li>
+                <li><a href="pieces/essieu.html" class="mobile-nav-link">Essieu</a></li>
+                <li><a href="pieces/timonerie_frein.html" class="mobile-nav-link">Timonerie de frein</a></li>
+                <li><a href="pieces/manivelle_maneton.html" class="mobile-nav-link">Manivelle de maneton</a></li>
+                <li><a href="pieces/bielle_accouplement.html" class="mobile-nav-link">Bielle d'accouplement</a></li>
+                <li><a href="about.html" class="mobile-nav-link">À Propos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="main-header" class="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-800 to-gray-950 shadow-inner-dark">
+        <div class="parallax-bg absolute inset-0 z-0" style="background-image: url('assets/images/background_main.jpg');"></div>
+
+        <div class="relative z-10 text-center text-gray-200 p-8 rounded-lg bg-gray-800 bg-opacity-70 shadow-2xl border border-gray-700 backdrop-blur-sm animate-fade-in-up">
+            <h1 class="text-5xl md:text-7xl font-playfair-display text-amber-300 mb-6 drop-shadow-lg leading-tight">
+                L'Ode du Fer et de la Vapeur
+            </h1>
+            <button id="discover-cta" class="btn-primary" aria-label="Découvrir le contenu du site">
+                <i class="fas fa-arrow-down mr-2"></i> Découvrir l'esprit du rail
+            </button>
+            <p class="text-xl md:text-2xl font-inter max-w-3xl mx-auto mb-8 mt-8 text-gray-400">
+                Plongez dans le cœur battant des géants d'acier, une exploration poétique et technique des mécanismes qui donnent vie aux chemins de fer.
+            </p>
+        </div>
+
+        <div id="train-animation-container" class="absolute inset-0 flex items-center justify-center z-20 opacity-0 transition-opacity duration-1000 ease-in-out pointer-events-none">
+            <svg id="train-svg" viewBox="0 0 800 200" class="w-full max-w-4xl h-auto" style="overflow: visible;">
+                <line x1="0" y1="150" x2="800" y2="150" stroke="#4a4a4a" stroke-width="8" />
+                <line x1="0" y1="160" x2="800" y2="160" stroke="#333" stroke-width="4" />
+
+                <rect x="100" y="80" width="400" height="70" fill="#2c3e50" class="train-body rounded-lg shadow-lg" />
+                <rect x="480" y="90" width="80" height="60" fill="#34495e" class="train-cab rounded-lg shadow-lg" />
+                <rect x="80" y="120" width="40" height="30" fill="#34495e" class="train-front rounded-lg shadow-lg" />
+
+                <rect x="150" y="50" width="30" height="30" fill="#34495e" class="train-chimney rounded-t-lg shadow-md" />
+
+                <circle cx="180" cy="150" r="25" fill="#1a1a1a" stroke="#4a4a4a" stroke-width="3" class="wheel" />
+                <circle cx="300" cy="150" r="25" fill="#1a1a1a" stroke="#4a4a4a" stroke-width="3" class="wheel" />
+                <circle cx="420" cy="150" r="25" fill="#1a1a1a" stroke="#4a4a4a" stroke-width="3" class="wheel" />
+
+                <line x1="180" y1="150" x2="420" y2="150" stroke="#7f8c8d" stroke-width="5" class="bielle-accouplement" />
+
+                <circle cx="165" cy="40" r="10" fill="rgba(200,200,200,0.7)" class="smoke smoke-1" />
+                <circle cx="175" cy="30" r="12" fill="rgba(200,200,200,0.6)" class="smoke smoke-2" />
+                <circle cx="185" cy="20" r="15" fill="rgba(200,200,200,0.5)" class="smoke smoke-3" />
+            </svg>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-16">
+        <section class="mb-20 animate-on-scroll" aria-labelledby="site-description-heading">
+            <h2 id="site-description-heading" class="section-title text-center mb-10">
+                Le Chant des Engrenages
+                <span class="ornament-engrenage"></span>
+            </h2>
+            <div class="max-w-4xl mx-auto bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700 text-gray-400 leading-relaxed text-lg">
+                <p class="mb-6 animate-on-scroll">
+                    Ce site est une immersion dans l'âme mécanique des trains, ces colosses de fer qui ont tissé le grand réseau de nos vies. Loin des clichés, nous explorons ici la beauté intrinsèque de chaque pièce, du plus humble boulon à l'essieu monumental, révélant leur rôle vital dans la symphonie du mouvement. C'est une célébration de l'ingéniosité humaine, une ode à la précision et à la puissance qui se cachent derrière chaque voyage.
+                </p>
+                <p class="animate-on-scroll">
+                    Chaque page dédiée à une pièce est une invitation à la découverte, mêlant l'analyse technique rigoureuse à la contemplation poétique. Car le rail n'est pas seulement une voie, c'est un poème en mouvement, et ses composants, des vers gravés dans le métal.
+                </p>
+            </div>
+        </section>
+
+        <section class="mb-20" aria-labelledby="poems-quotes-heading">
+            <h2 id="poems-quotes-heading" class="section-title text-center mb-10">
+                Murmures du Rail et Pensées d'Acier
+                <span class="ornament-engrenage"></span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <article class="bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700 animate-on-scroll">
+                    <h3 class="text-3xl font-playfair-display text-amber-300 mb-4 text-center">L'Essieu</h3>
+                    <p class="font-inter italic text-gray-400 leading-loose text-lg">
+                        Sous le poids du monde, il tourne, inlassable axe,<br>
+                        Pivot silencieux du voyage sans taxe.<br>
+                        Le fer murmure, le rail chante sa course,<br>
+                        L'essieu, cœur caché, puise à l'ombre sa source.
+                    </p>
+                </article>
+
+                <article class="bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700 animate-on-scroll">
+                    <h3 class="text-3xl font-source-code-pro text-teal-400 mb-4 text-center">Précision Mécanique</h3>
+                    <blockquote class="font-source-code-pro text-gray-400 leading-relaxed text-lg border-l-4 border-teal-500 pl-4">
+                        "La perfection n'est pas un détail, c'est l'essence même de la mécanique ferroviaire. Chaque pièce, aussi infime soit-elle, participe à la grandeur de l'ensemble."
+                        <footer class="mt-4 text-sm text-gray-500">— Un Ingénieur Anonyme du XIXe Siècle</footer>
+                    </blockquote>
+                </article>
+
+                <article class="bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700 animate-on-scroll">
+                    <h3 class="text-3xl font-playfair-display text-amber-300 mb-4 text-center">La Gare, un Soupir</h3>
+                    <p class="font-inter text-gray-400 leading-loose text-lg">
+                        La gare, cathédrale de départs et d'adieux,<br>
+                        Où le sifflet déchire l'air, sous des cieux<br>
+                        De fumée et de rêves. Un instant suspendu,<br>
+                        Avant que le géant ne reprenne son dû.
+                    </p>
+                </article>
+
+                <article class="bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700 animate-on-scroll">
+                    <h3 class="text-3xl font-source-code-pro text-teal-400 mb-4 text-center">L'Art du Mouvement</h3>
+                    <blockquote class="font-source-code-pro text-gray-400 leading-relaxed text-lg border-l-4 border-teal-500 pl-4">
+                        "Un train n'est pas qu'une machine, c'est une œuvre d'art cinétique, où chaque mouvement est le fruit d'une harmonie mécanique parfaite."
+                        <footer class="mt-4 text-sm text-gray-500">— Gustave Eiffel</footer>
+                    </blockquote>
+                </article>
+
+                <article class="bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700 animate-on-scroll">
+                    <h3 class="text-3xl font-playfair-display text-amber-300 mb-4 text-center">Les Rails, Veines du Monde</h3>
+                    <p class="font-inter italic text-gray-400 leading-loose text-lg">
+                        Rubans d'acier, veines du monde endormi,<br>
+                        Ils guident le voyageur, l'âme et l'esprit.<br>
+                        Sous le soleil ardent, sous la lune d'argent,<br>
+                        Les rails racontent l'histoire, éternellement.
+                    </p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-950 py-8 text-center text-gray-500 text-sm shadow-inner-dark">
+        <p>&copy; 2025 L'Ode du Fer et de la Vapeur. Tous droits réservés.</p>
+        <p class="mt-2">Développé avec passion par <a href="about.html" class="text-amber-400 hover:underline">Javed</a>.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
