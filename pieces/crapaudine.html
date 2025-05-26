@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Crapaudine - Mécanique des Chemins de Fer</title>
+    <title>La Crapaudine - Pièces Mécaniques | L'Ode du Fer et de la Vapeur</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
@@ -11,92 +11,94 @@
 </head>
 <body class="bg-gray-900 text-gray-300 font-inter antialiased overflow-x-hidden">
 
-    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 p-4 transition-all duration-300 ease-in-out bg-transparent">
+    <audio id="backgroundAudio" src="../assets/sounds/train_whistle_short.mp3" preload="auto"></audio>
+
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 p-4 transition-all duration-300 ease-in-out bg-gray-900 bg-opacity-80 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../index.html" class="text-2xl font-playfair-display text-amber-300 hover:text-amber-400 transition-colors duration-300" aria-label="Accueil du site">
-                L'Ode du Fer
-            </a>
-            <button id="menu-toggle" class="lg:hidden text-amber-300 focus:outline-none" aria-label="Ouvrir le menu de navigation">
-                <i class="fas fa-bars text-2xl"></i>
+            <a href="../index.html" class="text-2xl font-playfair-display text-amber-300 hover:text-amber-400 transition-colors duration-300">L'Ode du Fer et de la Vapeur</a>
+
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="../index.html" class="text-gray-300 hover:text-amber-400 transition-colors duration-300">Accueil</a>
+                <a href="../about.html" class="text-gray-300 hover:text-amber-400 transition-colors duration-300">À Propos</a>
+
+                <div class="group relative">
+                    <a href="#" class="text-gray-300 hover:text-amber-400 transition-colors duration-300 flex items-center">
+                        Pièces mécaniques <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                    </a>
+                    <div class="dropdown-menu absolute bg-gray-800 shadow-lg rounded-lg py-2 mt-2 w-48 z-50">
+                        <a href="bielle_accouplement.html" class="block py-2 px-4 text-gray-300 hover:bg-gray-700">Bielle d'Accouplement</a>
+                        <a href="crapaudine.html" class="block py-2 px-4 text-gray-300 hover:bg-gray-700">Crapaudine</a>
+                        <a href="essieu.html" class="block py-2 px-4 text-gray-300 hover:bg-gray-700">Essieu</a>
+                        <a href="manivelle_maneton.html" class="block py-2 px-4 text-gray-300 hover:bg-gray-700">Manivelle de Maneton</a>
+                        <a href="timonerie_frein.html" class="block py-2 px-4 text-gray-300 hover:bg-gray-700">Timonerie de Frein</a>
+                    </div>
+                </div>
+            </div>
+
+            <button id="toggleAudioBtn" class="p-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500 ml-4" aria-label="Activer/Désactiver le son">
+                <i id="audioIcon" class="fas fa-volume-up text-lg"></i>
             </button>
-            <ul id="main-menu" class="hidden lg:flex space-x-8">
-                <li><a href="../index.html" class="nav-link">Accueil</a></li>
-                <li class="relative group">
-                    <a href="#" class="nav-link">Pièces Mécaniques <i class="fas fa-chevron-down text-xs ml-1"></i></a>
-                    <ul class="absolute hidden group-hover:block bg-gray-800 shadow-lg rounded-lg py-2 mt-2 w-48 transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2">
-                        <li><a href="crapaudine.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Crapaudine</a></li>
-                        <li><a href="essieu.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Essieu</a></li>
-                        <li><a href="timonerie_frein.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Timonerie de frein</a></li>
-                        <li><a href="manivelle_maneton.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Manivelle de maneton</a></li>
-                        <li><a href="bielle_accouplement.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Bielle d'accouplement</a></li>
-                    </ul>
-                </li>
-                <li><a href="../about.html" class="nav-link">À Propos</a></li>
-            </ul>
+
+            <div class="md:hidden flex items-center">
+                <button id="menu-toggle" class="text-gray-300 focus:outline-none" aria-label="Ouvrir le menu mobile">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
-        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-40 flex flex-col items-center justify-center transform -translate-x-full transition-transform duration-300 ease-in-out">
-            <button id="close-menu" class="absolute top-4 right-4 text-amber-300 focus:outline-none" aria-label="Fermer le menu de navigation">
-                <i class="fas fa-times text-3xl"></i>
+
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-gray-950 z-50 flex-col items-center justify-center space-y-6 text-xl animate-fade-in-down" aria-hidden="true">
+            <button id="close-menu" class="absolute top-4 right-4 text-gray-300 text-3xl focus:outline-none" aria-label="Fermer le menu mobile">
+                <i class="fas fa-times"></i>
             </button>
-            <ul class="text-center space-y-6 text-2xl">
-                <li><a href="../index.html" class="mobile-nav-link">Accueil</a></li>
-                <li><a href="crapaudine.html" class="mobile-nav-link">Crapaudine</a></li>
-                <li><a href="essieu.html" class="mobile-nav-link">Essieu</a></li>
-                <li><a href="timonerie_frein.html" class="mobile-nav-link">Timonerie de frein</a></li>
-                <li><a href="manivelle_maneton.html" class="mobile-nav-link">Manivelle de maneton</a></li>
-                <li><a href="bielle_accouplement.html" class="mobile-nav-link">Bielle d'accouplement</a></li>
-                <li><a href="../about.html" class="mobile-nav-link">À Propos</a></li>
-            </ul>
+            <a href="../index.html" class="text-gray-300 hover:text-amber-400 transition-colors duration-300">Accueil</a>
+            <a href="../about.html" class="text-gray-300 hover:text-amber-400 transition-colors duration-300">À Propos</a>
+            <div class="w-full text-center">
+                <span class="text-gray-300 text-xl mb-2 block">Pièces mécaniques</span>
+                <div class="flex flex-col space-y-2">
+                    <a href="bielle_accouplement.html" class="block py-2 px-3 text-gray-300 hover:text-amber-400">Bielle d'Accouplement</a>
+                    <a href="crapaudine.html" class="block py-2 px-3 text-gray-300 hover:text-amber-400">Crapaudine</a>
+                    <a href="essieu.html" class="block py-2 px-3 text-gray-300 hover:text-amber-400">Essieu</a>
+                    <a href="manivelle_maneton.html" class="block py-2 px-3 text-gray-300 hover:text-amber-400">Manivelle de Maneton</a>
+                    <a href="timonerie_frein.html" class="block py-2 px-3 text-gray-300 hover:text-amber-400">Timonerie de Frein</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <main class="container mx-auto px-4 py-16 mt-20">
-        <nav class="breadcrumb animate-on-scroll" aria-label="Fil d'Ariane">
-            <ol class="list-none p-0 inline-flex">
-                <li class="flex items-center">
-                    <a href="../index.html" class="text-gray-500 hover:text-amber-400">Accueil</a>
-                    <span class="mx-2 text-gray-600">/</span>
-                </li>
-                <li class="flex items-center">
-                    <a href="#" class="text-gray-500 hover:text-amber-400">Pièces Mécaniques</a>
-                    <span class="mx-2 text-gray-600">/</span>
-                </li>
-                <li class="flex items-center text-amber-400" aria-current="page">
-                    La Crapaudine
-                </li>
-            </ol>
-        </nav>
-
-        <h1 class="section-title text-center mb-10 animate-on-scroll">
-            La Crapaudine : Le Cœur de l'Appui
-            <span class="ornament-engrenage"></span>
-        </h1>
-
-        <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            <div class="animate-on-scroll">
-                <div class="piece-image-container" aria-label="Image de la crapaudine, cliquez pour agrandir">
-                    <img src="../assets/images/crapaudine.jpg" alt="Illustration d'une crapaudine de chemin de fer, pièce de support et de pivot." onerror="this.onerror=null;this.src='https://placehold.co/800x600/333/ccc?text=Image+Crapaudine';">
+    <main class="container mx-auto py-16 px-4 mt-24">
+        <section class="animate-on-scroll bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700">
+            <h1 class="text-4xl font-playfair-display text-amber-300 mb-6 text-center">La Crapaudine</h1>
+            <div class="md:flex md:items-center md:space-x-8 mb-8">
+                <div class="md:w-1/2">
+                    <img src="../assets/images/crapaudine.jpg" alt="Crapaudine" class="rounded-lg shadow-lg mb-6 md:mb-0">
                 </div>
-            </div>
-            <div class="animate-on-scroll">
-                <p class="text-lg leading-relaxed text-gray-400 mb-6">
-                    Dans le ballet discret des forces mécaniques, la crapaudine est un élément essentiel, souvent méconnu du grand public. Elle est le point d'appui et de pivotement de l'essieu, permettant à la roue de tourner librement tout en supportant le poids colossal du wagon. Sa conception est un équilibre subtil entre robustesse et fluidité, garantissant la stabilité et la sécurité du convoi.
-                </p>
-                <div class="technical-description animate-on-scroll">
-                    <h3 class="text-2xl font-source-code-pro text-teal-300 mb-4">Description Technique</h3>
-                    <p class="font-source-code-pro text-gray-400">
-                        La crapaudine, ou boîte d'essieu, est une pièce moulée en fonte ou en acier, logeant le palier de l'essieu. Elle est conçue pour résister aux charges verticales et latérales, tout en minimisant les frottements grâce à des coussinets en bronze ou des roulements à billes/rouleaux. Elle est fixée au châssis du bogie et permet un mouvement vertical limité de l'essieu, absorbant les chocs et les irrégularités de la voie. Son étanchéité est primordiale pour protéger les éléments internes de la poussière et de l'humidité.
+                <article class="md:w-1/2">
+                    <h2 class="text-3xl font-inter text-gray-300 mb-4">Fonction et Importance</h2>
+                    <p class="mb-4 leading-loose">
+                        La crapaudine, ou "coussinet de boîte d'essieu", est un composant vital qui abrite l'extrémité de l'essieu d'une roue de train. Son rôle est de permettre à l'essieu de tourner librement tout en supportant les charges colossales du wagon ou de la locomotive. Elle assure une friction minimale entre l'essieu en rotation et le châssis fixe du train, grâce à un système de lubrification. Historiquement, elle était constituée d'un boîtier en fonte ou en acier contenant des paliers en bronze ou en métal blanc, conçus pour résister à l'usure et à la chaleur générée par le mouvement.
                     </p>
-                </div>
+                    <p class="leading-loose">
+                        Une crapaudine défectueuse peut entraîner un échauffement excessif ("boîte chaude"), potentiellement dangereux. Sa bonne conception et sa maintenance régulière sont cruciales pour la sécurité et la fluidité de la circulation ferroviaire.
+                    </p>
+                </article>
             </div>
         </section>
 
-        <section class="max-w-4xl mx-auto mb-16">
-            <div class="poetic-reflection animate-on-scroll">
-                <h3 class="text-2xl font-playfair-display text-amber-300 mb-4">Réflexion Poétique</h3>
-                <p class="font-playfair-display italic text-gray-400 leading-loose">
-                    Elle est la main invisible qui soutient le géant,<br>
-                    Un socle humble où le monde tourne, incessant.<br>
+        <section class="mb-16 animate-on-scroll bg-gray-800 p-6 rounded-xl shadow-2xl border border-gray-700">
+            <h2 class="text-3xl font-inter text-gray-300 mb-4 text-center">Détail du Coussinet</h2>
+            <div class="w-full flex justify-center items-center">
+                <img src="../assets/images/crapaudine_2.jpg" alt="Détail du coussinet de crapaudine" class="w-full md:w-3/4 lg:w-2/3 h-auto rounded-lg shadow-xl border border-gray-700">
+            </div>
+            <figcaption class="text-sm text-gray-500 text-center mt-4">Vue rapprochée d'un coussinet de crapaudine, essentiel pour la rotation de l'essieu.</figcaption>
+        </section>
+
+        <section class="anecdote animate-on-scroll">
+            <h2 class="text-3xl font-inter text-gray-300 mb-4">Poésie Mécanique</h2>
+            <div class="prose prose-invert max-w-none text-center">
+                <p class="mb-4">
+                    Sous le poids du géant, dans l'ombre et le secret,<br>
+                    La crapaudine veille, son travail discret.<br>
+                    Elle porte l'essieu, le chemin qui tourne, incessant.<br>
                     Dans l'ombre du châssis, elle veille, sans un cri,<br>
                     Le secret du voyage, le poids de l'infini.<br>
                     Son fer épouse l'axe, un murmure secret,<br>
@@ -105,19 +107,17 @@
             </div>
         </section>
 
-        <section class="max-w-4xl mx-auto mb-16">
-            <div class="anecdote animate-on-scroll">
-                <h3 class="text-2xl font-inter text-gray-300 mb-4">Anecdote du Rail</h3>
-                <p class="text-gray-400">
-                    Autrefois, les crapaudines étaient graissées manuellement par des ouvriers dédiés, souvent appelés "graisseurs". C'était une tâche ardue et essentielle, car un manque de lubrification pouvait entraîner un échauffement excessif, voire un grippage de l'essieu, un incident redouté connu sous le nom de "boîte chaude". L'évolution vers les roulements modernes a grandement amélioré la fiabilité et réduit cette tâche répétitive.
-                </p>
-            </div>
+        <section class="anecdote animate-on-scroll">
+            <h2 class="text-3xl font-inter text-gray-300 mb-4">Anecdote du Rail</h2>
+            <p class="text-gray-400">
+                Autrefois, les crapaudines étaient graissées manuellement par des ouvriers dédiés, souvent appelés "graisseurs". C'était une tâche ardue et essentielle, car un manque de lubrification pouvait entraîner un échauffement excessif, voire un grippage de l'essieu, un incident redouté connu sous le nom de "boîte chaude". L'évolution vers les roulements modernes a grandement amélioré la fiabilité et réduit cette tâche répétitive.
+            </p>
         </section>
     </main>
 
     <footer class="bg-gray-950 py-8 text-center text-gray-500 text-sm shadow-inner-dark">
         <p>&copy; 2025 L'Ode du Fer et de la Vapeur. Tous droits réservés.</p>
-        <p class="mt-2">Développé avec passion par <a href="../about.html" class="text-amber-400 hover:underline">Javed</a>.</p>
+        <p class="mt-2">Développé avec passion par <a href="../about.html" class="text-teal-400 hover:underline">Javed</a>.</p>
     </footer>
 
     <script src="../js/main.js"></script>

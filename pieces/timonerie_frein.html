@@ -11,89 +11,95 @@
 </head>
 <body class="bg-gray-900 text-gray-300 font-inter antialiased overflow-x-hidden">
 
+    <audio id="backgroundAudio" src="../assets/sounds/train_whistle_short.mp3" preload="auto"></audio>
+
     <nav id="navbar" class="fixed top-0 left-0 w-full z-50 p-4 transition-all duration-300 ease-in-out bg-gray-900 bg-opacity-80 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="../index.html" class="text-2xl font-playfair-display text-amber-300 hover:text-amber-400 transition-colors duration-300" aria-label="Accueil du site">
-                L'Ode du Fer
-            </a>
-            <button id="menu-toggle" class="lg:hidden text-amber-300 focus:outline-none" aria-label="Ouvrir le menu de navigation">
-                <i class="fas fa-bars text-2xl"></i>
+            <a href="../index.html" class="text-2xl font-playfair-display text-amber-300 hover:text-amber-400 transition-colors duration-300">L'Ode du Fer et de la Vapeur</a>
+
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="../index.html" class="text-gray-300 hover:text-amber-400 transition-colors duration-300">Accueil</a>
+                <a href="../about.html" class="text-gray-300 hover:text-amber-400 transition-colors duration-300">À Propos</a>
+
+                <div class="group relative">
+                    <a href="#" class="text-gray-300 hover:text-amber-400 transition-colors duration-300 flex items-center">
+                        Pièces mécaniques <i class="fas fa-chevron-down ml-2 text-xs"></i>
+                    </a>
+                    <div class="dropdown-menu absolute bg-gray-800 shadow-lg rounded-lg py-2 mt-2 w-48 z-50">
+                        <a href="bielle_accouplement.html" class="block py-2 px-4 text-gray-300 hover:bg-gray-700">Bielle d'Accouplement</a>
+                        <a href="crapaudine.html" class="block py-2 px-4 text-gray-300 hover:bg-gray-700">Crapaudine</a>
+                        <a href="essieu.html" class="block py-2 px-4 text-gray-300 hover:bg-gray-700">Essieu</a>
+                        <a href="manivelle_maneton.html" class="block py-2 px-4 text-gray-300 hover:bg-gray-700">Manivelle de Maneton</a>
+                        <a href="timonerie_frein.html" class="block py-2 px-4 text-gray-300 hover:bg-gray-700">Timonerie de Frein</a>
+                    </div>
+                </div>
+            </div>
+
+            <button id="toggleAudioBtn" class="p-2 rounded-full bg-gray-700 hover:bg-gray-600 text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber-500 ml-4" aria-label="Activer/Désactiver le son">
+                <i id="audioIcon" class="fas fa-volume-up text-lg"></i>
             </button>
-            <ul id="main-menu" class="hidden lg:flex space-x-8">
-                <li><a href="../index.html" class="nav-link">Accueil</a></li>
-                <li class="relative group">
-                    <a href="#" class="nav-link">Pièces Mécaniques <i class="fas fa-chevron-down text-xs ml-1"></i></a>
-                    <ul class="absolute dropdown-menu">
-                        <li><a href="crapaudine.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Crapaudine</a></li>
-                        <li><a href="essieu.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Essieu</a></li>
-                        <li><a href="timonerie_frein.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Timonerie de frein</a></li>
-                        <li><a href="manivelle_maneton.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Manivelle de maneton</a></li>
-                        <li><a href="bielle_accouplement.html" class="block px-4 py-2 hover:bg-gray-700 rounded-md transition-colors duration-200">Bielle d'accouplement</a></li>
-                    </ul>
-                </li>
-                <li><a href="../about.html" class="nav-link">À Propos</a></li>
-            </ul>
+
+            <div class="md:hidden flex items-center">
+                <button id="menu-toggle" class="text-gray-300 focus:outline-none" aria-label="Ouvrir le menu mobile">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
-        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-gray-900 bg-opacity-95 z-40 flex flex-col items-center justify-center transform -translate-x-full transition-transform duration-300 ease-in-out">
-            <button id="close-menu" class="absolute top-4 right-4 text-amber-300 focus:outline-none" aria-label="Fermer le menu de navigation">
-                <i class="fas fa-times text-3xl"></i>
+
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-gray-950 z-50 flex-col items-center justify-center space-y-6 text-xl animate-fade-in-down" aria-hidden="true">
+            <button id="close-menu" class="absolute top-4 right-4 text-gray-300 text-3xl focus:outline-none" aria-label="Fermer le menu mobile">
+                <i class="fas fa-times"></i>
             </button>
-            <ul class="text-center space-y-6 text-2xl">
-                <li><a href="../index.html" class="mobile-nav-link">Accueil</a></li>
-                <li><a href="crapaudine.html" class="mobile-nav-link">Crapaudine</a></li>
-                <li><a href="essieu.html" class="mobile-nav-link">Essieu</a></li>
-                <li><a href="timonerie_frein.html" class="mobile-nav-link">Timonerie de frein</a></li>
-                <li><a href="manivelle_maneton.html" class="mobile-nav-link">Manivelle de maneton</a></li>
-                <li><a href="bielle_accouplement.html" class="mobile-nav-link">Bielle d'accouplement</a></li>
-                <li><a href="../about.html" class="mobile-nav-link">À Propos</a></li>
-            </ul>
+            <a href="../index.html" class="text-gray-300 hover:text-amber-400 transition-colors duration-300">Accueil</a>
+            <a href="../about.html" class="text-gray-300 hover:text-amber-400 transition-colors duration-300">À Propos</a>
+            <div class="w-full text-center">
+                <span class="text-gray-300 text-xl mb-2 block">Pièces mécaniques</span>
+                <div class="flex flex-col space-y-2">
+                    <a href="bielle_accouplement.html" class="block py-2 px-3 text-gray-300 hover:text-amber-400">Bielle d'Accouplement</a>
+                    <a href="crapaudine.html" class="block py-2 px-3 text-gray-300 hover:text-amber-400">Crapaudine</a>
+                    <a href="essieu.html" class="block py-2 px-3 text-gray-300 hover:text-amber-400">Essieu</a>
+                    <a href="manivelle_maneton.html" class="block py-2 px-3 text-gray-300 hover:text-amber-400">Manivelle de Maneton</a>
+                    <a href="timonerie_frein.html" class="block py-2 px-3 text-gray-300 hover:text-amber-400">Timonerie de Frein</a>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <main class="container mx-auto px-4 py-24">
-        <nav class="breadcrumb" aria-label="breadcrumb">
-            <ol class="list-none p-0 inline-flex">
-                <li class="flex items-center">
-                    <a href="../index.html" class="text-amber-400 hover:underline">Accueil</a>
-                    <i class="fas fa-chevron-right text-gray-500 text-xs mx-2"></i>
-                </li>
-                <li class="flex items-center">
-                    <a href="#" class="text-amber-400 hover:underline">Pièces Mécaniques</a>
-                    <i class="fas fa-chevron-right text-gray-500 text-xs mx-2"></i>
-                </li>
-                <li class="flex items-center text-gray-500" aria-current="page">
-                    Timonerie de frein
-                </li>
-            </ol>
-        </nav>
+    <main class="container mx-auto py-16 px-4 mt-24">
+        <section class="animate-on-scroll bg-gray-800 p-8 rounded-xl shadow-2xl border border-gray-700">
+            <h1 class="text-4xl font-playfair-display text-amber-300 mb-6 text-center">La Timonerie de Frein</h1>
+            <div class="md:flex md:items-center md:space-x-8 mb-8">
+                <div class="md:w-1/2">
+                    <img src="../assets/images/timonerie.jpg" alt="Timonerie de Frein" class="rounded-lg shadow-lg mb-6 md:mb-0">
+                </div>
+                <article class="md:w-1/2">
+                    <h2 class="text-3xl font-inter text-gray-300 mb-4">Fonction et Importance</h2>
+                    <p class="mb-4 leading-loose">
+                        La timonerie de frein est l'ensemble complexe de leviers, tiges, et articulations qui transmet la force de freinage (qu'elle soit manuelle, pneumatique ou hydraulique) aux sabots de frein, qui pressent ensuite contre les roues pour ralentir ou arrêter le train. C'est un système de multiplication et de distribution de force, assurant que la pression est appliquée de manière égale et efficace sur toutes les roues.
+                    </p>
+                    <p class="leading-loose">
+                        Historiquement, les systèmes de freinage des trains étaient très rudimentaires, avec des serre-freins actionnant des freins wagon par wagon. L'avènement de systèmes plus sophistiqués comme le frein à air comprimé a rendu la timonerie d'autant plus essentielle. Elle doit être robuste, précise et bien entretenue pour garantir la sécurité du convoi, surtout lors de freinages d'urgence ou sur des pentes. C'est l'un des systèmes les plus critiques pour la sécurité ferroviaire.
+                    </p>
+                </article>
+            </div>
+        </section>
 
-        <h1 class="text-5xl md:text-6xl font-playfair-display text-amber-300 mb-8 text-center drop-shadow-lg">
-            La Timonerie de Frein : Le Souffle Maîtrisé
-        </h1>
+        <section class="mb-16 animate-on-scroll bg-gray-800 p-6 rounded-xl shadow-2xl border border-gray-700">
+            <h2 class="text-3xl font-inter text-gray-300 mb-4 text-center">Mécanisme de Freinage</h2>
+            <div class="w-full flex justify-center items-center">
+                <img src="../assets/images/timonerie_2.jpg" alt="Mécanisme de timonerie de frein" class="w-full md:w-3/4 lg:w-2/3 h-auto rounded-lg shadow-xl border border-gray-700">
+            </div>
+            <figcaption class="text-sm text-gray-500 text-center mt-4">Un aperçu du complexe mécanisme de la timonerie de frein sous un wagon.</figcaption>
+        </section>
 
-        <div class="piece-image-container animate-on-scroll" data-src="../assets/images/timonerie_frein.jpg">
-            <img src="../assets/images/timonerie_frein.jpg" alt="Image d'une timonerie de frein de wagon">
-        </div>
-
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <article class="technical-description animate-on-scroll">
-                <h2 class="text-3xl font-source-code-pro text-teal-300 mb-4">Description Technique</h2>
+        <section class="anecdote animate-on-scroll">
+            <h2 class="text-3xl font-inter text-gray-300 mb-4">Poésie Mécanique</h2>
+            <article class="prose prose-invert max-w-none text-center">
                 <p class="mb-4">
-                    La timonerie de frein est le système de **tringles, leviers et articulations** qui transmet la force de l'organe de commande (cylindre de frein pneumatique, levier manuel) aux sabots ou plaquettes de frein qui agissent sur les roues. C'est un ensemble mécanique essentiel qui assure la **distribution uniforme de l'effort de freinage** à toutes les roues d'un bogie ou d'un wagon. Sa conception doit minimiser les pertes par frottement et garantir une réponse rapide et fiable.
-                </p>
-                <p>
-                    Elle est conçue avec une précision rigoureuse pour optimiser le rapport de démultiplication et garantir que la force appliquée par le système de freinage principal (air comprimé, par exemple) se traduise par une pression suffisante et équilibrée sur les surfaces de freinage des roues, permettant ainsi un **arrêt sûr et contrôlé** du train.
-                </p>
-            </article>
-
-            <article class="poetic-reflection animate-on-scroll">
-                <h2 class="text-3xl font-playfair-display text-amber-300 mb-4">Réflexion Poétique</h2>
-                <p class="mb-4 italic">
-                    Invisible danse, tringles et leviers,<br>
-                    Le souffle contenu, le mouvement bridé.<br>
-                    La force transmise, avec douce fermeté,<br>
-                    Le géant s'immobilise, la course est arrêtée.<br>
-                    Un murmure de sécurité, un soupir de pause,<br>
+                    Dans les ombres du train, une danse secrète,<br>
+                    La timonerie de frein, une chaîne parfaite.<br>
+                    Chaque levier s'anime, chaque tringle répond,<br>
+                    Le mouvement ralenti, le voyage profond.<br>
                     La timonerie veille, l'âme qui se repose.<br>
                     Dans chaque clic, une promesse tenue,<br>
                     Le temps suspendu, le péril vaincu.
@@ -111,7 +117,7 @@
 
     <footer class="bg-gray-950 py-8 text-center text-gray-500 text-sm shadow-inner-dark">
         <p>&copy; 2025 L'Ode du Fer et de la Vapeur. Tous droits réservés.</p>
-        <p class="mt-2">Développé avec passion par <a href="../about.html" class="text-amber-400 hover:underline">Javed</a>.</p>
+        <p class="mt-2">Développé avec passion par <a href="../about.html" class="text-teal-400 hover:underline">Javed</a>.</p>
     </footer>
 
     <script src="../js/main.js"></script>
